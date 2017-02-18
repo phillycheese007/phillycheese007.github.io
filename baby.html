@@ -1,64 +1,334 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>lazysizes - the ultimate lazyloader for responsive images, iframes and widget</title>
+
 <style>
-body{
-    background-image: url("http://billyssuns.com/apasta/examples/lazysizes/cell33.png");
-background-size:cover;background-repeat:no-repeat;
-}
-#div-1 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    margin-left: 550px;margin-top:40px;
-    border:5px solid green;transform: rotate(38deg);
-    perspective: 470px;
-    perspective-origin: 104% 104%;   transform-style: preserve-3d;
-}
-#div0 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    margin: 50px; 
-    background: purple;transform:rotate(-2deg) rotateX(36deg) rotateY(-28deg) skewX(-10deg); 
-    perspective-origin: 10% 10%; 
-   transform-style: preserve-3d;
+body{background-color: #fff;}
 
+#holder{width:84%;margin:0 auto;height:600px;border;5px solid black;background:lightgreen;}
+
+#phoneon {
+  max-width: 80%;
+  width: 100%;
+  position: absolute;z-index:0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0;
+  animation-name: a;
+  animation-delay: 8s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
 }
 
-#div1 {
-    position: relative;
-    height: 150px;
-    width: 150px;
-    border: 1px solid black;
-    perspective: 520px;
-    perspective-origin: 100% 100%;    
-        animation-name: example;
-    animation-duration: 5s;
- animation-fill-mode: forwards;transform-origin:50% 50%;
+svg#bid {max-width: 80%;
+width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+svg#squid{max-width: 80%;width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+svg path {
+  animation-timing-function: linear;
+}
+          @keyframes fill {
+              0% {
+                  fill: transparent;
+              }
+              25% {
+                  fill: black;
+              }
+              50% {
+                  fill: darkblue;stroke: black;stroke-width:1.3;
+              }
+              75% {
+                  fill: #4dffdb;stroke: black;stroke-width:1.3;
+              }
+              100% {
+                  fill: white;stroke: black;stroke-width:1.7;
+              }
+          }
+          .scroon {
+              fill: transparent;
+              animation-name: fill;
+              animation-delay: 11.3s;
+              animation-duration: 13s;
+              animation-iteration-count:1;
+              animation-fill-mode: forwards;
+          }
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes show {
+  to {
+    opacity: 1;
+  }
 }
 
-#div2 {
-    width:150px;height:150px;
-    position: absolute;
-    border: 1px solid black;
-    background-color: red;
-    transform: rotate(45deg);
+
+#loganim {
+    width:20%;border:2px solid purple;
+    height:50%;
+    animation:         FLIP 7s infinite; 
+   transform-origin:100% 100%;
+}
+#myop {
+    width:10%;
+    height:5%;fill:transparent;
+    animation:         FLIP2 17s infinite, 18s logocolor 21s infinite; 
+
+   transform-origin:50% 50%;transform:translate(0px, 102px) rotate( 32deg ) skewY(-1deg)
+   animation-fill:forwards;
 }
 
+@keyframes FLIP2 {
+    from {
+        -webkit-transform: rotate( 32deg ) rotateY(0deg) skewY(-1deg) rotateX(0deg)  translate(0px, 102px);
+
+    }
+    to { 
+        -webkit-transform: rotate( 32deg ) rotateY(360deg) skewY(-1deg) rotateX(0deg) translate(0px, 102px);
+
+    }
+}
+
+          @keyframes logocolor {
+              0% {
+                  fill: transparent;
+              }
+              25% {
+                  fill: purple;
+              }
+              50% {
+                  fill: blue;
+              }
+              75% {
+                  fill: #4dffdb;
+              }
+              100% {
+                  fill: blue;
+              }
+          }
+
+#squid{
+       overflow:visible;
+       transform:rotate(4deg) rotateX(36deg) rotateY(-28deg) skewX(-4deg); 
+       perspective-origin: 10% 10%; 
+       perspective: 10px;
+       transform-style: preserve-3d;}
+    
+#bid{border:5px solid blue;background:black;}
+
+
+
+svg #outline path {
+  animation: draw linear;
+  animation-duration: 9s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;fill:black;
+}
+svg #powerbutton path {
+
+  animation: draw linear;
+  animation-duration: .5s;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
+}
+
+svg #cornerticks path {
+  stroke-dasharray: 1689;
+  stroke-dashoffset: 1689;
+  animation: draw linear;
+  animation-duration: 5s;
+  animation-delay: 9s;
+  animation-fill-mode: forwards;
+}
+
+svg #casetop path {
+
+  animation: draw linear, 22s phonecolor 22s linear;
+  animation-duration: 5s;
+  animation-delay: 2.8s, 12s;
+  animation-fill-mode: forwards;
+}
+
+svg #screenoutline path {
+
+  animation: draw linear;
+  animation-duration: 5s;
+  animation-delay: 8s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes phonecolor {
+    from {
+        fill:black;
+
+    }
+    to { 
+        fill:#040404;
+    }
+}
 
 </style>
-</head>
 
+
+</head>
 <body>
 
-<div id="div-1">
-   <div id="div0">
-     <div id="div1">
-      <div id="div2">HELLO</div>
-    </div>
-  </div>
-</div>
+<div id="holder">
 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" id="bid" width="1634" height="918" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1634 918.00002">
+
+<g id="images" transform="translate(0 -134.362)">
+  <image id="phoneon" width="1634" height="918" x="3.0993974" y="133.26747" xlink:href="cell33.png" preserveAspectRatio="none"/>
+</g>
+
+<g id="outline" fill="none" fill-rule="evenodd" stroke="white" stroke-width="1.5">  
+ 
+  
+
+  <path id="path4532" stroke-dasharray="3508.5664" stroke-dashoffset="3508.5664" fill="none" fill-rule="evenodd" d="M1522.4009 157.86021s15.1375 14.17221 17.4706 35.13783c2.9497 26.50609-17.144 45.19596-22.4473 51.20637-39.6144 35.59911-167.656 150.30484-236.035 211.75449-3.9719 9.98788-9.4764 16.77395-17.5422 13.68016-85.7237 77.43045-174.2208 156.77894-254.6661 228.76009-61.40803 54.46461-121.72025 109.33548-178.06537 159.73184-6.16122 5.49954-19.83244 17.1549-31.26685 18.71037-8.83884 1.76777-30.5165 2.26777-47.84062-3.03553S140.43607 690.9403 140.43607 690.9403s-21.76089-7.01826-35.00914-33.08022c-11.22239-22.07669 2.62132-57.80813 16.07412-67.60407 24.73803-15.53318 771.92836-561.442784 778.29233-564.978318 6.36396-3.535534 18.03122-7.071068 23.68807-7.424621 5.65686-.353554 24.04163 2.828427 50.55814 8.131728 26.51651 5.3033 533.51211 123.390131 537.75471 125.157901 4.2426 1.76777 8.1317 3.53553 10.6066 6.71751z"/>
+
+</g>
+
+<g id="powerbutton" fill="none" fill-rule="evenodd" stroke="white" stroke-width="1.5">
+
+   <path id="powerbut" stroke-dasharray="54.751" stroke-dashoffset="54.751"  fill="none" fill-rule="evenodd" d="M1266.125 469.625c-7.5-19.875-.3915-36.45394 2-41 0 0 2.4598-4.36594 5.625-5.25 1.1351-.31703 3-.375 4.375.875"/>
+
+  <path id="powerbut" stroke-dasharray="35.1037" stroke-dashoffset="35.1037" fill="none" fill-rule="evenodd" d="M1277.125 452.125s1-2.125 1.25-3.25 1.3394-6.29836-.625-9.125c-1.973-2.83906-5.875.625-6.625 3.375s-.875 5.75-.625 8.5 1.5 4.25 1.5 4.25"/>
+
+  <path id="powerbut" stroke-dasharray="8.1288" stroke-dashoffset="8.1288" fill="none" fill-rule="evenodd" d="M1274.375 448.125l.25 8.125"/>
+  <path id="powerbut" stroke-dasharray="142.6697" stroke-dashoffset="142.6697" fill="none" d="M1259.7876 467.82782c-.6532.25848-1.1758 1.42166-1.9598 1.16318-.7839-.25848-.5226-.64622-.6533-2.32636-.1306-1.68015.5227-8.78851.6533-13.31201.1306-4.52349.1306-12.01958.1306-16.93079 0-4.91123 1.4374-9.4347 2.8745-12.92427 1.4372-3.48955 6.7772-4.45283 9.6687-3.87729 3.1086.61873 13.7549 5.10947 13.1965 21.06657-.5009 14.31436-4.3916 21.57676-8.166 25.91317-4.1225 3.246-6.4466 3.52475-9.277 3.10181 0 0-6.5328-.6462-9.0152-3.74804m14.8556-45.79873s-5.2171.79667-8.1172.49999"/>
+</g>
+
+
+<g id="cornerticks" fill="none" fill-rule="evenodd" stroke="white" stroke-width="1.5">
+    <path id="cornerticktopright" fill-rule="evenodd" stroke-width=".94025075" d="M1523.8529 174.1065s7.4287 7.72435 10.3115 26.78606"/>
+    <path id="cornerticksright" d="M821.00057 791.24575s11.26149 17.80581 12.91882 27.70994c2.16416 12.93292.74892 30.51838-3.74459 38.00755"/>
+    <path id="cornerticksright" d="M755.65753 800.04553s-7.86363 25.46319-7.6764 39.13093c.18723 13.66774 4.30628 29.02054 6.17857 32.5779"/>
+    <path id="cornertickleft" fill="none" fill-rule="evenodd" d="M134.96475 617.53657s-6.68397 11.73234-8.13622 23.08155c-1.45224 11.34922-.86904 25.96179 7.26512 43.11169"/>
+    <path id="sidebuttontop" d="M1222.4996 483.75712s-1.8535 0-3.4422 1.32391c-1.5886 1.32391-81.1045 70.72567-85.2598 77.31642-4.8548 7.70023-2.383 14.56302-.2647 16.94606"/>
+  <path id="sidebuttonbottom" d="M907.14396 773.95846s5.82521 4.5013 8.47304 2.64782c2.64782-1.85347 47.39602-43.1595 47.39602-43.1595s3.2355-4.01533 1.83742-11.10756c-.71872-3.64588-2.79243-6.07116-11.99276-7.41114"/>
+    <path id="sidebuttonbottom" d="M907.14396 773.95846s5.82521 4.5013 8.47304 2.64782c2.64782-1.85347 47.39602-43.1595 47.39602-43.1595s3.2355-4.01533 1.83742-11.10756c-.71872-3.64588-2.79243-6.07116-11.99276-7.41114"/>
+  <path id="sidebuttonbottom" d="M963.66931 719.34969s-.56169-1.68506-2.71483-.74892c-2.15313.93615-45.12226 39.41178-45.12226 39.41178s-1.96591 2.62121-2.62121 5.05519c-.65531 2.43398-1.59145 11.42099 1.12337 13.48051"/>
+    <path id="sidebuttonbottom" d="M963.66931 719.34969s-.56169-1.68506-2.71483-.74892c-2.15313.93615-45.12226 39.41178-45.12226 39.41178s-1.96591 2.62121-2.62121 5.05519c-.65531 2.43398-1.59145 11.42099 1.12337 13.48051"/>
+    <path id="sidebuttonbottom" d="M957.67797 715.97956s-.37446-2.80844-1.68506-2.80844c-1.31061 0-2.62121-.37445-4.68074 1.68507-2.05952 2.05952-42.31383 38.94369-42.31383 38.94369s-2.80843 3.18291-3.18289 9.36148c-.37446 6.17856.93615 13.29327 2.05952 13.4805 1.12338.18723.74892-1.87229.74892-1.87229"/>
+  <path id="sidebuttontop" d="M1126.6484 578.54916s3.4422 3.97174 7.4139 1.05913c3.9718-2.9126 88.9669-79.96423 88.9669-79.96423s3.1774-3.97174 3.1774-6.88434c0-2.91261 1.0591-9.26738-10.8561-11.38564l-85.5247 75.9925s-7.1492 3.70695-3.1774 21.18258z"/>   
+    <path id="sidebutton" d="M957.67797 715.97956s-.37446-2.80844-1.68506-2.80844c-1.31061 0-2.62121-.37445-4.68074 1.68507-2.05952 2.05952-42.31383 38.94369-42.31383 38.94369s-2.80843 3.18291-3.18289 9.36148c-.37446 6.17856.93615 13.29327 2.05952 13.4805 1.12338.18723.74892-1.87229.74892-1.87229"/>
+    <path id="sidebutton" d="M963.66931 719.34969s-.56169-1.68506-2.71483-.74892c-2.15313.93615-45.12226 39.41178-45.12226 39.41178s-1.96591 2.62121-2.62121 5.05519c-.65531 2.43398-1.59145 11.42099 1.12337 13.48051"/>
+    <path id="sidebutton" d="M1126.6484 578.54916s3.4422 3.97174 7.4139 1.05913c3.9718-2.9126 88.9669-79.96423 88.9669-79.96423s3.1774-3.97174 3.1774-6.88434c0-2.91261 1.0591-9.26738-10.8561-11.38564l-85.5247 75.9925s-7.1492 3.70695-3.1774 21.18258z"/>
+    <path id="sidebutton" d="M907.14396 773.95846s5.82521 4.5013 8.47304 2.64782c2.64782-1.85347 47.39602-43.1595 47.39602-43.1595s3.2355-4.01533 1.83742-11.10756c-.71872-3.64588-2.79243-6.07116-11.99276-7.41114"/>
+
+
+
+
+<path id="usb" d="M461.89473 740.69383s10.29761 15.72727 10.29761 17.03788c0 1.3106.74892 13.66773 0 14.97834-.74891 1.3106-3.37012 2.43398-4.68073 2.05952-1.3106-.37446-69.83653-20.78245-69.83653-20.78245s-4.86797-3.37013-5.99134-4.86797c-1.12338-1.49783-1.8723-12.35713-1.68507-15.16557 2.85901-4.44702 7.03776-7.26258 12.54437-10.48484 1.87229-.18723 4.11904-.56169 6.17856 0 2.05953.56168 48.86686 14.60388 48.86686 14.60388s1.87229 0 4.30627 2.62121z"/>
+  <path id="casepieces" fill="none" fill-rule="evenodd" d="M468.0733 759.22954l.18723 8.05086s.74892 1.68506-.93615 1.87229c-1.68506.18723-67.58978-18.72293-67.58978-18.72293l-4.11905-3.1829-.56169-11.04653 8.79978-7.30194 54.29651 15.54003z"/>
+  <path id="casepieces" fill="none" fill-rule="evenodd" d="M467.69884 758.66785l-58.60278-17.03787s-2.05952-.74892-2.43398-2.05952c-.37446-1.31061-.56169-9.92316-.56169-9.92316"/>
+  <path id="casepieces" fill="none" fill-rule="evenodd" d="M464.32871 753.42543l-52.98589-14.60389s-.74892-.37446-1.31061-1.3106c-.56169-.93615-.74892-6.74026-.74892-6.74026"/>
+  <path id="casepieces" fill="none" fill-rule="evenodd"  d="M246.484 684.30076c4.72766 1.61502 11.94347 7.04564 11.94347 14.45954 0 7.41391-5.45538 8.92595-8.85477 7.97303-37.12406-10.40663-69.13903-20.5804-69.13903-20.5804s-9.61873-4.05919-10.97303-9.63434c-1.61401-6.64429 1.0221-12.9254 8.35477-11.70954 9.52242 1.57895 44.55215 11.25326 68.66859 19.49171z"/>
+  <path id="casepieces" fill="none" fill-rule="evenodd" d="M258 702.5s-71.75-19.25-75.25-21.75-7.5-8.5-5.75-15.5"/>
+</g>
+
+
+
+
+<g id="casetop"  fill="none" fill-rule="evenodd" stroke="white" stroke-width="1.5">    
+
+  <path id="caseoutline" stroke-dasharray="1703.54345" stroke-dashoffset="1703.54345" fill="none" fill-rule="evenodd" d="M120.04894 591.88641s-6.67344 9.29299-1.74281 15.56c3.77169 4.79395 6.36467 5.99162 16.11528 9.65949 16.56401 6.23085 623.06646 180.94483 623.06646 180.94483s18.57097 6.75149 34.09516 5.34021c9.03727-.82157 17.25298-2.05393 28.34418-11.91278 15.08691-14.48345 702.03179-619.66943 702.03179-619.66943s9.0373-7.59953.6163-13.76131"/>
+
+  <path id="innercasetopoutline" stroke-dasharray="147.8511" stroke-dashoffset="147.8511" d="M518.66282 720.0101s1.76777-2.82843-2.12132-4.24264c-3.88909-1.41421-136.47161-40.30509-136.47161-40.30509s-  5.65685-.7071-6.71751 1.41422"/> 
+
+
+  <path id="cstoutlin" stroke-dasharray="3261.6130" stroke-dashoffset="3261.6130" d="M893.97974 35.72941s10.34762-7.896867 14.1599-9.803007c3.81228-1.90614 10.89222-4.629197 16.06603-4.901503 5.17381-.272306 11.16454-.544612 17.42757.816917 6.26303 1.361529 208.04156 49.015033 208.04156 49.015033l2.4508 4.084586 120.0868 28.047494 8.9861-1.90614 221.3846 51.73809s7.6245 2.17844 10.6199 5.17381c2.9953 2.99536 5.4461 5.1738 3.8123 7.62456-1.6339 2.45075-703.91037 617.0448-703.91037 617.0448s-13.88759 12.25376-29.40902 11.43684c-15.52142-.81692-647.54304-185.44021-647.54304-185.44021s-9.5307-3.81228-9.5307-6.80764c0-2.99536-1.36153-6.80764 2.45075-9.5307 3.81228-2.72306 764.90682-556.59293 764.90682-556.59293z"/>
+
+    <path id="camera" stroke-dasharray="181.7552" stroke-dashoffset="181.7552" d="M1275.0385 145.84308c1.9581-4.57175 13.2745-13.10292 32.0484-12.7316 22.3702.44245 40.0334 5.48498 43.1335 14.49568 4.3939 12.77112-18.2214 19.89943-36.416 19.44544-19.0312-.47487-30.0097-4.29221-35.8125-8.73528-3.8125-2.91916-5.3854-6.79594-2.9534-12.47424z"/>
+
+    <path id="camera" stroke-dasharray="151.8760" stroke-dashoffset="151.8760" d="M1280.6459 146.34257c1.6632-3.60379 11.2744-10.32868 27.2199-10.03598 18.9997.34877 34.0018 4.32367 36.6349 11.42656 3.7318 10.06711-15.4761 15.68616-30.9293 15.32831-16.1641-.37433-25.4886-3.38344-30.4171-6.88579-3.238-2.30109-4.574-5.35704-2.5084-9.8331z"/>
+
+    <path id="camera" stroke-dasharray="87.7469" stroke-dashoffset="87.7469"  d="M1293.3738 151.57784c.9783-1.93623 6.6316-5.54937 16.0106-5.39211 11.1759.18738 20.0001 2.32302 21.5487 6.13925 2.1952 5.40884-9.1028 8.42783-18.1925 8.23557-9.5079-.20113-14.9925-1.81785-17.8914-3.69959-1.9045-1.23632-2.6905-2.87823-1.4754-5.28312z"/>
+
+    <path id="camera" stroke-dasharray="22.0406" stroke-dashoffset="22.0406" d="M1306.6213 156.97909c.2076-.58182 1.5165-1.72051 3.7739-1.80406 2.6897-.0998 4.8416.4053 5.2675 1.50401.6036 1.55726-2.0707 2.59962-4.2588 2.66886-2.2891.0727-3.6308-.32627-4.3541-.83849-.4753-.33658-.6869-.80765-.4285-1.53032z"/>
+
+  <path id="microphone" stroke-dasharray="103.4426" stroke-dashoffset="103.4426" fill="none" fill-rule="evenodd" d="M1045.9891 85.043071l26.9045 6.105638s7.0621 1.016341 6.2897 5.795129c-.7912 4.896652-6.3164 3.873302-12.1223 2.696507-7.9953-1.620543-20.164-4.4591-28.0846-5.964114-3.9945-.758997-6.3334-4.050875-5.3552-6.989641.9916-2.978792 4.6104-3.355609 12.3679-1.643519z"/>
+</g>
+
+
+
+<g id="screenoutline" fill-rule="evenodd" stroke-width="1.5" stroke="white">
+
+  <path id="snoutline" fill="none" stroke-dasharray="2791.8203" stroke-dashoffset="2791.8203" d="M231.10451 541.54455l624.39751 178.68323 580.99388-505.71427L865.16656 78.911041z"/>
+
+
+
+
+</g>
+
+
+
+
+<g fill-rule="evenodd">
+  <path id="screeno" class="scroon" fill="#aad9c3" d="M231.1044 541.61951l624.39751 178.68323 580.99389-505.71427L865.16645 78.986002z"/>
+
+
+
+
+</g>
+
+
+
+
+
+
+</svg>
+
+
+
+
+<svg id="squid" xmlns="http://www.w3.org/2000/svg" id="svg4928" width="1634" height="918" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1634 918.00002">
+
+
+    <path id="myop" fill="#5600ff" fill-opacity=".99494952" stroke-width="1.60000002" d="M876.16814 172.82062L768.78433 280.20443l107.38381 107.38382 107.38381-107.38382-107.38381-107.38381zm-66.39649 89.8964h10.74475c3.94286 0 6.91951.89558 8.93022 2.68637 2.0264 1.77507 3.03987 4.38252 3.03987 7.8227 0 3.47161-1.01347 6.09463-3.03987 7.8697-2.01071 1.77507-4.98736 2.66324-8.93022 2.66324h-5.98505v14.13739h-4.7597v-35.1794zm29.12352 0h9.77892c6.81754 0 11.82039 1.42196 15.00924 4.26523 3.18884 2.82754 4.78355 7.2573 4.78355 13.28941 0 6.06353-1.60212 10.51701-4.80669 13.36026-3.20456 2.84327-8.19998 4.2645-14.9861 4.2645h-9.77892v-35.1794zm35.10855 0h27.63935v3.62833l-22.24348 27.54538h22.78568v4.00569h-28.72302v-3.62833l22.24349-27.54537h-21.70202v-4.0057zm35.10928 0h6.40867l15.59915 29.43003v-29.43003h4.618v35.1794h-6.4094l-15.59841-29.43002v29.43002H909.113v-35.1794zm-94.58165 3.91172v13.21857h5.98505c2.21491 0 3.92677-.5731 5.13634-1.71982 1.20956-1.14674 1.81452-2.78073 1.81452-4.9014 0-2.10495-.60496-3.7308-1.81452-4.87753-1.20957-1.14673-2.92143-1.71982-5.13634-1.71982h-5.98505zm29.1235 0v27.35597h5.74938c4.85397 0 8.40444-1.09947 10.65077-3.29868 2.26204-2.1992 3.39265-5.67036 3.39265-10.41437 0-4.71258-1.13061-8.16074-3.39265-10.34425-2.24633-2.1992-5.7968-3.29867-10.65077-3.29867h-5.74938z"/>
+
+</svg>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
 </body>
 </html>
